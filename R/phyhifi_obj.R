@@ -3,6 +3,7 @@ devtools::use_package("corHMM", type = "Depends")
 #library("magrittr", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
 #library("magrittr", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
 #library("numbers", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
+#library("MASS", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
 
 #############
 #devtools::document()
@@ -315,3 +316,20 @@ chimera_matrix<-function(M)
 }
 # chimera_matrix(M)
 # chimera_matrix(Q)
+
+#' @title # make cor rate matrix: set 0 to NA
+#' @description
+#' @param
+#' @return
+#' @examples
+#' phyhifi()
+#' @export
+make.cor.matrix<-function(M)
+{
+  M<-M$M
+  M[which(M==0)]<-NA
+  return(M)
+}
+
+#make.cor.matrix(M)
+###

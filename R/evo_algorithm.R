@@ -1,4 +1,13 @@
 
+
+# argiments
+M.init
+N.iter
+deltaAIC #AIC range
+root.phylo
+root.est
+
+
 run_hifi<-function()
 {
 
@@ -6,9 +15,6 @@ run_hifi<-function()
 M<-Q.cor
 M.r<-matrix(c(1:nrow(M)^2), nrow(M), nrow(M) )
 
-obs.state<-list(
-  c(1,2,3,4,5), c(6,7)
-)
 
 # set intial rates
 M[1, obs.state[[2]][1]]<-1
@@ -19,15 +25,7 @@ M<-list(phyhifi(M=M[[1]]) )
 result<-matrix(0, nrow=N.iter, ncol=4)
 colnames(result)<-c("N_Q.best", "N_new_mt", "", "")
 
-# make cor rate mt: set 0 to NA
-make.cor.matrix<-function(M)
-{
-  M<-M$M
-  M[which(M==0)]<-NA
-  return(M)
-}
 
-make.cor.matrix(M)
 ##############################
 #
 # Serach Loop
@@ -174,7 +172,7 @@ for (it in 1:N.iter){
   #aic=2-(2*Ln)
 
   aic<-lapply(un.results, function(x) x$AIC) %>% unlist()
-  daic<-min(aic)+.1
+  daic<-min(aic)+deltaAIC
   best.id<-which(aic<=daic )
   best.Q<-un.results[best.id]
 
