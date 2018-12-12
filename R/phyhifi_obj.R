@@ -4,6 +4,7 @@ devtools::use_package("corHMM", type = "Depends")
 #library("magrittr", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
 #library("numbers", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
 #library("MASS", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
+#library("plyr", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
 
 #############
 #devtools::document()
@@ -55,7 +56,7 @@ phyhifi<-function(M=NULL, rate=NULL, Ln=NULL, AIC=NULL, AICc=NULL, elapsed.time=
 #'
 print.phyhifi<-function(x)
 {
-  cat("___________________________________________________________\n")
+  #cat("___________________________________________________________\n")
   cat("\n")
   cat("Ln:", x$Ln, "\tAIC:", x$AIC, "\tRate:", x$rate, "\n", sep=" ")
   cat("\n")
@@ -63,7 +64,7 @@ print.phyhifi<-function(x)
   cat("\n")
   cat("elapsed time:", x$elapsed.time, "\tcount:", x$count, sep=" ", "\n")
 
-  cat("___________________________________________________________\n")
+  #cat("___________________________________________________________\n")
 }
 #print(ph)
 #ph<-phyhifi(M=M[[1]], rate=out$solution, Ln=out$loglik, AIC=out$AIC, AICc=out$AICc, Cor.sol=F)

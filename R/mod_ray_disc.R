@@ -1,6 +1,12 @@
-# Modification of ray_disc function from corHMM
+# Modification of rayDIS() function from corHMM package
 
-
+#' @title Mod Ray Disc
+#' @description
+#' @param M matrix
+#' @return vector of names.
+#' @examples
+#' phyhifi()
+#' @export
 greedy_rayDISC <- function(phy, data, ntraits = 1, charnum = 1, rate.mat = NULL,
                              model = c("ARD"), node.states = c("marginal"), state.recon = c("subsequently"), lewis.asc.bias = FALSE,
                              p = NULL, root.p = NULL, ip = NULL, lb = 0, ub = 100, verbose = TRUE,
@@ -303,6 +309,7 @@ greedy_rayDISC <- function(phy, data, ntraits = 1, charnum = 1, rate.mat = NULL,
       lik.anc <- NULL
       lik.anc$lik.anc.states <- NULL
       lik.anc$lik.tip.states <- NULL
+      tip.states <- lik.anc$lik.tip.states
     }############################### End Inferring ancestral states using
 
     if (diagn == TRUE) {
